@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Task 8</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">
+            ROCK <br/>
+            PAPER <br/>
+            SCISSORS 
+        </h1>
+        <section class="header__score">
+            score
+            <span class="header__score__value">0</span>
+        </section>
+    </header>
+    <main class="main pages">
+        <div class="main__page">
+            <section class="main__top">
+                <div class="wrap main__paper clickable" onclick="judge('PAPER')">
+                    <img class="" src="./images/icon-paper.svg" alt="paper">
+                </div>
+                <div class="wrap main__scissors clickable" onclick="judge('SCISSORS')">
+                    <img class="" src="./images/icon-scissors.svg" alt="scissor">
+                </div>
+            </section>
+            <section class="main__bottom clickable">
+                <div class="wrap main__rock" onclick="judge('ROCK')">
+                    <img class="" src="./images/icon-rock.svg" alt="rock">
+                </div>
+            </section>
+        </div>
+        <div class="main__page">
+           <section class="choice-page">
+                <section class="choice-page__player">
+                    <h2>YOU PICKED</h2>
+                    <!-- to be added by js -->
+                    <div class="ripple">
+                        <div class="wrap">
+                        </div>
+                    </div>
+                </section>
+                <section class="playagain playagain--hiden">
+                    <h2><span class="playagain__status"></span></h2>
+                    <button class="playagain__btn clickable" onclick="cleanUp()">
+                        PLAY AGAIN
+                    </button>
+                </section>
+                <section class="choice-page__agent">
+                    <h2>THE HOUSE PICKED</h2>
+                    <div class="placeholder"></div>
+                    <div class="ripple">
+                        <div class="wrap wrap--hiden">
+                        </div>
+                    </div>
+                </section>
+           </section>
+        </div>
+        
+        
+    </main>
+    <footer class="footer">
+        <button class="footer__rule-btn clickable" id="open-modal">
+            RULES
+        </button>
+    </footer>
+
+    <div class="overlay"></div>
+    <section class="modal">
+        <header class="modal__header">
+            <h2>RULES</h2>
+            <button class="modal__close clickable">
+                <img src="./images/icon-close.svg" alt="close">
+            </button>   
+        </header>
+        <section class="modal__body">
+            <img src="./images/image-rules.svg" alt="rules">
+        </section>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>

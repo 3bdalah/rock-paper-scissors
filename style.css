@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header{
+    color: white;
+    width: 80%;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid white;
+    border-radius: 8px;
+    margin: auto;
+    padding: 15px;
+}
+
+
+.header__score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    border-radius: inherit;
+    background-color: white;
+    color: hsl(229, 64%, 46%);
+    padding: 6px 40px;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.header__score__value{
+    display: block;
+    font-size: 45px;
+    font-weight: 800;
+    color: #4A4856;
+}
+
+.main{
+    height: 500px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    margin-top: 30px;
+    background: url('./images/bg-triangle.svg') no-repeat;
+    background-position: center 124px;
+}
+
+.main .wrap{
+    width: 135px;
+    height: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    padding: 60px;
+
+}
+
+.main__bottom{
+    margin-top: 36px;
+}
+
+.main__bottom,
+.main__top{
+    display: flex;
+    justify-content: center;
+}
+
+.main__top .wrap +.wrap{
+    margin-left: 100px;
+}
+
+.main__paper{
+    border: 20px solid hsl(230, 89%, 62%);
+    box-shadow: inset 1px 8px 1px hsl(230deg 17% 73% / 40%),
+                1px 8px 1px hsl(230, 56%, 44%);
+}
+
+.main__scissors{
+    border: 20px solid hsl(39, 89%, 49%);
+    box-shadow: inset 1px 8px 1px hsl(230deg 17% 73% / 40%),
+                1px 8px 1px hsl(39, 87%, 39%);
+}
+
+.main__rock{
+    border: 20px solid hsl(349, 71%, 52%);
+    box-shadow: inset 1px 8px 1px hsl(230deg 17% 73% / 40%),
+                1px 8px 1px hsl(349, 65%, 36%);
+}
+
+.footer{
+    margin-top: 30px;
+    padding: 0 0 40px 0;
+}
+
+.footer__rule-btn{
+    display: block;
+    margin: auto;
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+    padding: 6px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.modal.modal--active{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    padding: 30px;
+}
+
+.modal__header{
+    display: flex;
+    justify-content: space-between;
+    color: hsl(229, 25%, 31%);
+}
+
+.modal__close{
+    background: transparent;
+    border: none;
+}
+
+.modal__body{
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay.overlay--active{
+    display: block;
+}
+
+.overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.clickable:hover{
+    cursor: pointer;
+}
+
+
+.pages{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+
+}
+
+.main__page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+
+}
+
+.choice-page{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.playagain{
+    order: 1;
+    grid-column: 1/-1;
+}
+
+.choice-page h2{
+    padding-bottom: 80px;
+}
+
+
+
+.choice-page__player,
+.choice-page__agent{
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-page .playagain{
+    height: max-content;
+    align-self: center;
+}
+
+.choice-page .playagain h2{
+    padding-bottom: 20px;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+
+.choice-page .playagain__btn{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    word-spacing: 4px;
+    padding: 9px 40px;
+    border: none;
+    background: white;
+    border-radius: 8px;
+}
+
+.choice-page .playagain.playagain--win{
+    color: hsl(229, 25%, 31%);
+}
+
+.choice-page .playagain.playagain--hiden{
+    display: none;  
+}
+
+.choice-page .playagain.playagain--lose button{
+    color: red;
+}
+
+.main--bg-hiden{
+    background-image: none;
+}
+
+.wrap.wrap--hiden{
+    display: none;
+}
+
+.ripple.wrap--win{
+    box-shadow: 0px 0px 0px 156px rgb(255 255 255 / 4%), 0 0 0 115px rgb(255 255 255 / 4%), 0 0 0 80px rgb(255 255 255 / 5%), 0 0 0 48px rgb(0 0 0 / 20%);
+    border-radius: 50%;
+}
+
+.ripple{
+    width: max-content;
+    margin-top: auto;
+}
+
+.placeholder.placeholder--hiden{
+    display: none;
+}
+
+
+.choice-page .placeholder{
+    width: 150px;
+    height: 150px;
+    border: 20px solid transparent;
+    background-color: rgba(0,0,0,.2);
+    border-radius: 50%;
+}
+
+
+.pages > *{
+    width: 100%;
+    flex-shrink: 0;
+}
+
+
+@media(min-width: 790px){
+    .header{
+        width: 900px;
+    }
+
+    .main{
+        height: 600px;
+        background-position: center 175px;
+    }
+
+    .modal{
+        height: auto;
+        width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+    }
+
+    .choice-page{
+        display: flex;
+    }
+
+    .playagain{
+        order: 0;
+    }
+
+    .footer{
+        padding: 0 40px 40px 0;
+    }
+
+
+    .choice-page .placeholder{
+        width: 200px;
+        height: 200px;
+    }
+
+    .footer__rule-btn{
+        margin-left: auto;
+
+    }
+    .choice-page .wrap{
+        transform: scale(1.5);
+    }
+}
+
+@media(max-width: 480px){
+
+    .header__score{
+        padding: 2px 20px;
+    }
+    .main .wrap{
+        width: 110px;
+        height: 110px;
+        padding: 45px;
+    }
+
+    .choice-page{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .choice-page .placeholder{
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
